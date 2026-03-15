@@ -97,3 +97,35 @@ EthanPortfolio/
 - Custom Tailwind color tokens (defined in `tailwind.config.js`) must be used instead of raw hex values in templates.  
 - Composables live in `src/composables/` and are named `useXxx.js`.  
 - No TypeScript — the project is plain JavaScript.
+
+## Window Manager Details
+
+`useWindowManager` manages a reactive array of window state objects. The registered window IDs are:
+
+| ID | Title | Initially Visible |
+|---|---|---|
+| `main` | `HOME.VUE` | ✅ yes |
+| `song` | `SONG.MP3` | ❌ no |
+| `project_1` | `PROJECT_1` | ❌ no |
+| `project_2` | `PROJECT_2` | ❌ no |
+| `project_3` | `PROJECT_3` | ❌ no |
+
+**API:**  
+- `openWindow(id)` — makes window visible, unminimizes, focuses  
+- `closeWindow(id)` — hides window  
+- `focusWindow(id)` — increments global `topZ` and assigns new z-index  
+- `toggleMinimize(id)` — flips the `minimized` flag  
+
+## AI Tooling
+
+This project is configured for AI-assisted development using **GitHub Copilot** and **Claude**.
+
+- `.vscode/extensions.json` — recommends Copilot, Copilot Chat, Volar, Tailwind CSS IntelliSense, ESLint, and Prettier  
+- `.vscode/settings.json` — enables Copilot for all file types, sets formatOnSave, and configures Tailwind class regex for IntelliSense  
+- `CLAUDE.md` (this file) — serves as the primary context document for Claude and other AI assistants  
+
+When prompting AI tools for this project, key context to include:  
+- "retro OS desktop UI with draggable windows"  
+- "Vue 3 Composition API with `<script setup>`"  
+- "Tailwind CSS v4 with custom color tokens"  
+- "16 px grid snap for all draggable elements"
