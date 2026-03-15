@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --color-desktop:     #82B1FF;
+  --color-window-bg:   #FFFFFF;
+  --color-header-dark: #1A2B3C;
+  --color-accent:      #4A698D;
+  --color-retro-text:  #1A1A1A;
+}
+
+@font-face {
+  font-family: 'Alagard';
+  src: url('/fonts/alagard.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PixelOperator';
+  src: url('/fonts/PixelOperator.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'PixelifySans-Regular';
+  src: url('/fonts/PixelifySans-Regular.ttf') format('truetype');
+}
+
+:root {
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  background-color: theme('colors.desktop');
+  color: theme('colors.retro-text');
+}
+
+body {
+  font-family: 'PixelifySans-Regular', sans-serif;
+  margin: 0;
+  overflow: hidden; /* Prevents scrollbars on the "desktop" */
+}
+
+/* ── Retro Macintosh Scrollbar ───────────────────────────────────────── */
+.window-content {
+  /* Firefox fallback */
+  scrollbar-width: thin;
+  scrollbar-color: #c0c0c0 #ffffff;
+}
+
+.window-content::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+.window-content::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+}
+
+/* Track: light checkerboard pattern (classic Mac stipple) */
+.window-content::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Crect width='1' height='1' fill='%23c0c0c0'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23c0c0c0'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Thumb: raised 3D bevel with horizontal grip lines */
+.window-content::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 3px
+  );
+  background-clip: padding-box;
+}
+
+.window-content::-webkit-scrollbar-thumb:horizontal {
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 3px
+  );
+}
+
+/* Arrow buttons: shared 3D bevel style */
+.window-content::-webkit-scrollbar-button {
+  background-color: #c0c0c0;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 7px 7px;
+  display: block;
+}
+
+/* Up arrow */
+.window-content::-webkit-scrollbar-button:vertical:start:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7'%3E%3Cpolygon points='3.5,0.5 6.5,5.5 0.5,5.5' fill='%231A2B3C'/%3E%3C/svg%3E");
+}
+
+/* Down arrow */
+.window-content::-webkit-scrollbar-button:vertical:end:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7'%3E%3Cpolygon points='3.5,6.5 6.5,1.5 0.5,1.5' fill='%231A2B3C'/%3E%3C/svg%3E");
+}
+
+/* Left arrow */
+.window-content::-webkit-scrollbar-button:horizontal:start:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7'%3E%3Cpolygon points='0.5,3.5 5.5,0.5 5.5,6.5' fill='%231A2B3C'/%3E%3C/svg%3E");
+}
+
+/* Right arrow */
+.window-content::-webkit-scrollbar-button:horizontal:end:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7'%3E%3Cpolygon points='6.5,3.5 1.5,0.5 1.5,6.5' fill='%231A2B3C'/%3E%3C/svg%3E");
+}
+
+/* Hide the inner duplicate buttons (webkit adds 2 per end) */
+.window-content::-webkit-scrollbar-button:vertical:start:increment,
+.window-content::-webkit-scrollbar-button:vertical:end:decrement,
+.window-content::-webkit-scrollbar-button:horizontal:start:increment,
+.window-content::-webkit-scrollbar-button:horizontal:end:decrement {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+/* The Dithered Border Utility */
+.bg-dither {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAOSURBVChTY2BgYPgfAAADEQDCmN676wAAAABJRU5ErkJggg==');
+  background-repeat: repeat;
+}
