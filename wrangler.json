@@ -1,7 +1,8 @@
 {
-  "name": "ethanportfolio",
+  "name": "ethan-portfolio",
   "compatibility_date": "2026-03-15",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "binding": "ASSETS" 
   }
 }
