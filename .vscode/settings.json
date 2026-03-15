@@ -1,0 +1,27 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+
+  "github.copilot.enable": {
+    "*": true,
+    "vue": true,
+    "javascript": true,
+    "css": true,
+    "html": true
+  },
+
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+
+  "tailwindCSS.experimental.classRegex": [
+    ["class=\"([^\"]*)", "([^\"\\s]*)"]
+  ],
+
+  "css.validate": false,
+  "scss.validate": false
+}
